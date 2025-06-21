@@ -2451,7 +2451,8 @@ insertTestUser();
     _id: 'demo-user-id',
     name: 'Admin',
     email: email,
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzQ4ODkwMjYwfQ.fakeToken',
+    token: process.env.ADMIN_TOKEN,
+ 
   });
 }
 
