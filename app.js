@@ -6989,13 +6989,13 @@ app.post('/api/candidatelogin', async (req, res) => {
   const { email, password } = req.body;
   console.log('📥 Login attempt:', { email });
   try {
-    if (email === process.env.DEMO_EMAIL && password === process.env.DEMO_PASSWORD) {
+    if (email === "admin@example.com" && password === "Demo@12345") {
       console.log('✅ Demo login successful');
       return res.json({
         _id: 'demo-user-id',
         name: 'Admin',
         email,
-        token: process.env.DEMO_TOKEN,
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzQ4ODkwMjYwfQ.fakeToken",
       });
     }
     const candidate = await Candidate.findOne({ email });
