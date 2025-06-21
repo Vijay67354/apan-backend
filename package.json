@@ -3,22 +3,21 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "bcrypt": "^6.1.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.1",
-    "express": "^5.1.2",
-    "mongodb": "^6.18.0",
-    "mongoose": "^8.17.2",
-    "multer": "^2.0.2",
-    "nodemailer": "^7.4.2",
-    "twilio": "^5.13.0"
-  },
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.16.0",
+    "multer": "^2.0.1",
+    "nodemailer": "^7.0.3",
+    "twilio": "^5.7.1"
+  }
 }
