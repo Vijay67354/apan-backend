@@ -7125,9 +7125,6 @@ app.get('/api/applications/count/:postedBy', async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
-  res.send('✅ Candidate Login API is running!');
-});
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
