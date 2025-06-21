@@ -4459,11 +4459,10 @@ const Application = mongoose.model('Application', applicationSchema);
     }
   ];
 app.use(cors({
-  origin: 'http://localhost:5006',
-  credentials: true
+  origin: process.env.FRONTEND_URL, // e.g., https://your-app.vercel.app
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
-
-
 // Seed TopCompanyJob Data
 // Seed TopCompanyJob Data
 const seedData = async () => {
@@ -4576,7 +4575,7 @@ const insertTestUser = async () => {
     }
 };
 insertTestUser();
-const API_BASE_URL = 'http://localhost:5006';
+
 // API Endpoints
 app.post('/api/upload-resume', upload.single('resume'), (req, res) => {
     try {
