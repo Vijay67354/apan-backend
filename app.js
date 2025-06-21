@@ -2194,11 +2194,11 @@ app.post('/api/candidatelogin', async (req, res) => {
 
 // Insert test user
 const insertTestUser = async () => {
-  const existingUser = await Candidate.findOne({ email: 'adminn@example.com' });
+  const existingUser = await Candidate.findOne({ email: process.env.ADMIN_EMAIL });
   if (!existingUser) {
     const hashedPassword = await bcrypt.hash(process.env.DEMO_PASSWORD, 10); // Securely hash
     const newCandidate = new Candidate({
-      email: 'adminn@example.com',
+      email: process.env.DEMO_EMAIL,
       password: hashedPassword,
       name: 'Admin User',
       avatar: '/default-avatar.png',
@@ -2445,15 +2445,16 @@ insertTestUser();
 
     try {
       // Check for demo credentials
-      if (email === 'admin@example.com' && password === 'Demo@12345') {
-        console.log('✅ Demo login successful');
-        return res.json({
-          _id: 'demo-user-id',
-          name: 'Admin',
-          email: email,
-          token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzQ4ODkwMjYwfQ.fakeToken',
-        });
-      }
+    if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+  console.log('✅ Demo login successful');
+  return res.json({
+    _id: 'demo-user-id',
+    name: 'Admin',
+    email: email,
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzQ4ODkwMjYwfQ.fakeToken',
+  });
+}
+
 
       // Check database for other users
       const user = await User.findOne({ email, password });
