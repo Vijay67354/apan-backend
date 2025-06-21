@@ -2567,10 +2567,9 @@ insertTestUser();
   });
 
   // Start Server
-  app.listen(5006, () => {
-    console.log('🚀 Server running at http://localhost:5006');
-  });
-
+ app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
 
 
 
