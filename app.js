@@ -7021,6 +7021,13 @@ app.post('/api/candidatelogin', async (req, res) => {
   }
 });
 
+app.get('/' , (req,res)=>{
+  res.send({
+    activeStatus:true,
+    error:false,
+  })
+})
+
 app.get('/api/top-companies', async (req, res) => {
   try {
     const companies = await TopCompany.find();
